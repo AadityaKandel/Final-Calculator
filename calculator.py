@@ -131,6 +131,10 @@ def detect_key(event):
     press(b17,"/","slash")
     press(b18,"=","Return")
     press(b3,"(X)","BackSpace")
+    press(b23,"parenleft","parenright")
+    press(b25,"bracketleft","bracketright")
+    press(b24,"braceleft","braceright")
+    
 
 # Creating Variables
 check_shift = 0
