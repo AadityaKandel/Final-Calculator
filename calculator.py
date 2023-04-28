@@ -89,14 +89,17 @@ def medium_bracket():
 def equals():
     big_number = l1['text']
     replaced = big_number.replace('[','(').replace(']',')').replace('}',')').replace('{','(').replace('^','**')
-    try:
-        l1.config(text=f"{eval(replaced)}")
-        new_answer = l1['text']
-        f = open('history.txt','a')
-        f.write('\n'+big_number+'='+new_answer)
-        f.close()
-    except:
-        tmsg.showwarning('Warning','Wrong Input')
+    if len(str(eval(replaced)))>21:
+        tmsg.showwarning('Warning','Answer Is Too Long')
+    else:
+        try:
+            l1.config(text=f"{eval(replaced)}")
+            new_answer = l1['text']
+            f = open('history.txt','a')
+            f.write('\n'+big_number+'='+new_answer)
+            f.close()
+        except:
+            tmsg.showwarning('Warning','Wrong Input')
 
 def how_much():
     l1.config(text=f"{l1['text']}^")
