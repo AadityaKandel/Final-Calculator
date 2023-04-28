@@ -37,13 +37,13 @@ def create1():
     return frame
 
 def options():
-    b17.config(text="Less",command=options1)
+    b19.config(text="Less",command=options1)
     root.minsize(385,570)
     root.maxsize(385,570)
 
 
 def options1():
-    b17.config(text="More",command=options)
+    b19.config(text="More",command=options)
     root.minsize(385,450)
     root.maxsize(385,450)
 
@@ -104,6 +104,30 @@ def equals():
 def how_much():
     l1.config(text=f"{l1['text']}^")
 
+def detect_key(event):
+
+    def press(name,name1,name2):
+        if event.keysym == name1:
+            name.invoke()
+        elif event.keysym == name2:
+            name.invoke()
+
+    press(b4,"1",1)
+    press(b5,"2",2)
+    press(b6,"3",3)
+    press(b7,"4",4)
+    press(b8,"5",5)
+    press(b9,"6",6)
+    press(b10,"7",7)
+    press(b11,"8",8)
+    press(b12,"9",9)
+    press(b13,"0",0)
+    press(b14,"+","plus")
+    press(b15,"-","minus")
+    press(b16,"*","asterisk")
+    press(b17,"/","slash")
+    press(b18,"=","equal")
+
 # Creating Variables
 check_shift = 0
 check_small_brackets = 0
@@ -151,41 +175,41 @@ b9 = create(f3,"6")
 f3.pack(anchor=W)
 
 # Frame 4
-b8 = create(f4,"7")
-b9 = create(f4,"8")
-b10 = create(f4,"9")
+b10 = create(f4,"7")
+b11 = create(f4,"8")
+b12 = create(f4,"9")
 f4.pack(anchor=W)
 
 # Frame 5
-b11 = create(f5,"0")
-b12 = create(f5,"+")
-b13 = create(f5,"-")
+b13 = create(f5,"0")
+b14 = create(f5,"+")
+b15 = create(f5,"-")
 f5.pack(anchor=W)
 
 # Frame 6
-b14 = create(f6,"*")
-b15 = create(f6,"/")
-b16 = create(f6,"=")
+b16 = create(f6,"*")
+b17 = create(f6,"/")
+b18 = create(f6,"=")
 f6.pack(anchor=W)
 
 # Frame 7
-b17 = create(f7,"More")
+b19 = create(f7,"More")
 f7.pack(anchor=W)
 
 # Frame 8
-b18 = create(f8,"^2")
-b19 = create(f8,"^3")
-b20 = create(f8,"^?")
+b20 = create(f8,"^2")
+b21 = create(f8,"^3")
+b22 = create(f8,"^?")
 f8.pack(anchor=W)
 
 #Frame 9
-b21 = create(f9,"()")
-b22 = create(f9,"{}")
-b23 = create(f9,"[]")
+b23 = create(f9,"()")
+b24 = create(f9,"{}")
+b25 = create(f9,"[]")
 f9.pack(anchor=W)
 
 #Configures
-b17.config(
+b19.config(
     borderwidth=2,
     pady=10,
     width=32,
@@ -194,12 +218,12 @@ b17.config(
 b1.config(command=history)
 b2.config(command=clear)
 b3.config(command=cut)
-b21.config(command=small_bracket)
-b22.config(command=medium_bracket)
-b23.config(command=big_bracket)
-b16.config(command=equals)
-b20.config(command=how_much)
-
+b23.config(command=small_bracket)
+b24.config(command=medium_bracket)
+b25.config(command=big_bracket)
+b18.config(command=equals)
+b22.config(command=how_much)
 
 root.config(bg="black")
+root.bind('<Key>',detect_key)
 root.mainloop()
