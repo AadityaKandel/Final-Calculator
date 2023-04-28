@@ -20,7 +20,8 @@ def create(frame_name,text):
         fg="white",
         font="comicsansms 14 italic",
         width=10,
-        command=lambda:l1.config(text=f"{l1['text']}{text}")
+        command=lambda:l1.config(text=f"{l1['text']}{text}"),
+        borderwidth=0
     )
 
     button.pack(side=LEFT)
@@ -182,6 +183,8 @@ f9.pack(anchor=W)
 
 #Configures
 b17.config(
+    borderwidth=2,
+    pady=10,
     width=32,
     command=options
 )
