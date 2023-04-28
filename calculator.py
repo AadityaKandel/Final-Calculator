@@ -129,7 +129,7 @@ def detect_key(event):
     press(b15,"-","minus")
     press(b16,"*","asterisk")
     press(b17,"/","slash")
-    press(b18,"=","equal")
+    press(b18,"=","Return")
     press(b3,"(X)","BackSpace")
 
 # Creating Variables
